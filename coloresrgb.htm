@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Byleth DAW</title>
+		<link rel="stylesheet" type = "text/css" href="css/css.css">
+		<link rel="stylesheet" type = "text/css" href="css/menu.css">
+		<link rel="icon" href="img/icon.png">
+		<audio id="hover">
+			<source src="bgm/hover.flac">
+		</audio>
+		<script type="text/javascript">
+			var sonido = new Audio();
+			sonido.src = ("bgm/click.flac");
+			
+			var soni2 = document.getElementById("hover");
+			function playAudio() {
+				soni2.play();
+			}
+			
+			var nuevaVentana
+				function abrirVentana() {
+				if (!ventanaAbierta()) {
+					nuevaVentana = window.open("selectorcoloresrgb.htm", "", "width=300, height=175")
+				} else {
+					nuevaVentana.focus()
+				}
+			}
+
+			function ventanaAbierta() {
+				if (!nuevaVentana) {
+					return false
+				} else if (nuevaVentana.closed) {
+					return false
+				} else {
+					return true
+				}
+			}			
+		</script>
+	</head>
+	<body>
+		<div class="navbar">
+			<a href="home.html" onmouseenter="playAudio()"><img src="img/icon.png" alt="home" height="20" width="20"></a>
+ 			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 2<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="ej1.htm" onmouseenter="playAudio()">PDF de "Ejercicios 1" completo</a>
+      				<a href="saludo.html" onmouseenter="playAudio()">Hablar con Byleth</a>
+      				<a href="adivina.html" onmouseenter="playAudio()">Adivina un número con Byleth</a>
+      				<a href="loteria.html" onmouseenter="playAudio()">Byleth te saca la lotería</a>
+      				<a href="try_catch1.html" onmouseenter="playAudio()">Manejo de errores con Byleth parte 1</a>
+      				<a href="try_catch2.html" onmouseenter="playAudio()">Manejo de errores con Byleth parte 2</a>
+    			</div>
+  			</div>
+ 			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 3<i class="fa fa-caret-down"></i></button>
+    			<div class="subnav-content">
+      				<a href="operacion.html" onmouseenter="playAudio()">Operación aritmética</a>
+					<a href="contador.html" onmouseenter="playAudio()">Cuenta con Byleth</a>
+					<a href="comprobar.html" onmouseenter="playAudio()">Comprobación de parámetros</a>
+					<a href="suma.html" onmouseenter="playAudio()">Termina el código</a>
+					<a href="bucles.html" onmouseenter="playAudio()">Diferencias de bucles con Byleth</a>
+					<a href="moneda.html" onmouseenter="playAudio()">Byleth te lanza una moneda</a>
+					<a href="ppt.html" onmouseenter="playAudio()">Juega al triángulo de armas con Byleth</a>
+					<a href="funciones.html" onmouseenter="playAudio()">Byleth calcula el factorial</a>
+					<a href="funciones2.html" onmouseenter="playAudio()">Intercambio de valores</a>
+					<a href="funciones3.html" onmouseenter="playAudio()">Suma por comas</a>
+					<a href="funciones4.html" onmouseenter="playAudio()">Parámetros por defecto</a>
+					<a href="funciones5.html" onmouseenter="playAudio()">Factorial recursivo</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 4<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="ahorcado.html" onmouseenter="playAudio()">Juega al ahorcado con Byleth</a>
+      				<a href="aparcamiento.html" onmouseenter="playAudio()">Byleth te cobra el parking</a>
+      				<a href="vvector.html" onmouseenter="playAudio()">Visualizar un vector</a>
+      				<a href="validar.html" onmouseenter="playAudio()">Byleth valida tu e-mail</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 5<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="form.html" onmouseenter="playAudio()">Formulario 1</a>
+					<a href="form2.html" onmouseenter="playAudio()">Formulario 2</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 6<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="lista.html" onmouseenter="playAudio()">Lista de varios niveles</a>
+					<a href="boton.html" onmouseenter="playAudio()">Pulsar el botón</a>
+					<a href="burbuja.html" onmouseenter="playAudio()">Burbujeo de sucesos</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 7<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="opener.htm" onmouseenter="playAudio()">Abrir ventanas</a>
+					<a href="marcos.html" onmouseenter="playAudio()">Marcos</a>
+					<a href="miniaturas.html" onmouseenter="playAudio()">Cuadros</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 8<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="coloresrgb.htm" onmouseenter="playAudio()">Colores RGB</a>
+					<a href="roll.html" onmouseenter="playAudio()">Roll Over</a>
+					<a href="visitas.html" onmouseenter="playAudio()">Contador de visitas</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 9<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="carrito.html" onmouseenter="playAudio()">Carrito</a>
+					<a href="arrayo.html" onmouseenter="playAudio()">Array de objetos</a>
+					<a href="crear.html" onmouseenter="playAudio()">Creación de objetos</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 10<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="pos.html" onmouseenter="playAudio()">Posicionamiento</a>
+					<a href="colecciones.html" onmouseenter="playAudio()">Colecciones</a>
+					<a href="filtros.html" onmouseenter="playAudio()">Filtros transiciones</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 11<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="pizza.html" onmouseenter="playAudio()">Byleth te hace una pizza</a>
+    			</div>
+  			</div>
+			<a href="https://twitter.com/NinNakajima" onmouseenter="playAudio()">Art by @NinNakajima</a>
+			<a><audio id="bgm" src="bgm/class.mp3" controls loop></a>
+		</div>
+		<div class="main">
+			<div class="ext">
+				<div class="cuadrofeo">
+					<h3>Texto de muestra para comprobar el color del primer plano</h3>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:abrirVentana()">Cambiar los colores de esta ventana</a>
+					<p><a href="selectorcoloresrgb.htm">Vínculo visitado</a>
+					<p><a href="nada.htm">Vínculo sin visitar</a>
+				</div>
+			</div>
+		</div>
+		</div>
+			<script>
+				var vol = document.getElementById("bgm");
+				vol.volume = 0.2;
+			</script>
+	</body>
+</html>

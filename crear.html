@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Byleth DAW</title>
+		<link rel="stylesheet" type = "text/css" href="css/css.css">
+		<link rel="stylesheet" type = "text/css" href="css/menu.css">
+		<link rel="icon" href="img/icon.png">
+		<audio id="hover">
+			<source src="bgm/hover.flac">
+		</audio>
+		<script type="text/javascript">
+			var sonido = new Audio();
+			sonido.src = ("bgm/click.flac");
+			
+			var soni2 = document.getElementById("hover");
+			function playAudio() {
+				soni2.play();
+			}
+			
+			var nombres = ['Polaris', 'Mizar', 'Aldebaran', 'Rigel', 'Castor', 'Albireo', 'Acrux', 'Gemma', 'Procyon', 'Sirius', 'Rigil Kentaurus', 'Deneb', 'Vega', 'Altair'];
+			function l81(){
+				var star = {};
+				star["Polaris"] = new Object;
+				star["Mizar"] = new Object;
+				star["Aldebaran"] = new Object;
+				star["Rigel"] = new Object;
+				star["Castor"] = new Object;
+				star["Albireo"] = new Object;
+				star["Acrux"] = new Object;
+				star["Gemma"] = new Object;
+				star["Procyon"] = new Object;
+				star["Sirius"] = new Object;
+				star["Rigil Kentaurus"] = new Object;
+				star["Deneb"] = new Object;
+				star["Vega"] = new Object;
+				star["Altair"] = new Object;
+
+				star["Polaris"].constellation = "Ursa Minor";
+				star["Mizar"].constellation = "Ursa Major";
+				star["Aldebaran"].constellation = "Taurus";
+				star["Rigel"].constellation = "Orion";
+				star["Castor"].constellation = "Gemini";
+				star["Albireo"].constellation = "Cygnus";
+				star["Acrux"].constellation = "Crux";
+				star["Gemma"].constellation = "Corona Borealis";
+				star["Procyon"].constellation = "Canis Minor";
+				star["Sirius"].constellation = "Canis Major";
+				star["Rigil Kentaurus"].constellation = "Centaurus";
+				star["Deneb"].constellation = "Cygnus";
+				star["Vega"].constellation = "Lyra";
+				star["Altair"].constellation = "Aquila";
+
+				star["Polaris"].type = "Double/Cepheid";
+				star["Mizar"].type = "Spectroscopic Binary";
+				star["Aldebaran"].type = "Irregular Variable";
+				star["Rigel"].type = "Supergiant with Companion";
+				star["Castor"].type = "Multiple/Spectroscopic";
+				star["Albireo"].type = "Double";
+				star["Acrux"].type = "Double";
+				star["Gemma"].type = "Eclipsing Binary";
+				star["Procyon"].type = "Double";
+				star["Sirius"].type = "Double";
+				star["Rigil Kentaurus"].type = "Double";
+				star["Deneb"].type = "Supergiant";
+				star["Vega"].type = "White Dwarf";
+				star["Altair"].type = "White Dwarf";
+
+				star["Polaris"].spectralClass = "F7";
+				star["Mizar"].spectralClass = "A1 V";
+				star["Aldebaran"].spectralClass = "K5 III";
+				star["Rigel"].spectralClass = "B8 Ia";
+				star["Castor"].spectralClass = "A1 V";
+				star["Albireo"].spectralClass = "K3 II";
+				star["Acrux"].spectralClass = "B1 IV";
+				star["Gemma"].spectralClass = "A0 V";
+				star["Procyon"].spectralClass = "F5 IV";
+				star["Sirius"].spectralClass = "A1 V";
+				star["Rigil Kentaurus"].spectralClass = "G2 V";
+				star["Deneb"].spectralClass = "A2 Ia";
+				star["Vega"].spectralClass = "A0 V";
+				star["Altair"].spectralClass = "A7 V";
+
+				star["Polaris"].mag = 2.0;
+				star["Mizar"].mag = 2.3;
+				star["Aldebaran"].mag = 0.85;
+				star["Rigel"].mag = 0.12;
+				star["Castor"].mag = 1.58;
+				star["Albireo"].mag = 3.1;
+				star["Acrux"].mag = 0.8;
+				star["Gemma"].mag = 2.23;
+				star["Procyon"].mag = 0.38;
+				star["Sirius"].mag = -1.46;
+				star["Rigil Kentaurus"].mag = -0.01;
+				star["Deneb"].mag = 1.25;
+				star["Vega"].mag = 0.03;
+				star["Altair"].mag = 0.77;
+				
+				for (var i = 0; i < nombres.length; i++){
+					console.log(star[nombres[i]].constellation + " " + star[nombres[i]].type + " " + star[nombres[i]].spectralClass + " " + star[nombres[i]].mag);
+				} console.log("Esta forma de crear objetos crea un objeto vacío (var star = {}) y utiliza ese objeto para crear los que visualizamos (Ej: star['Polaris'].constellation = 'Ursa Minor', en este caso asigna la propiedad 'constellation' al objeto 'Polaris' , de forma similar a una matriz.");	
+				alert ("La información de los objetos se muestra por consola (F12)");
+			}
+			
+			function l82(){
+				var star = {};
+
+				function Star(constell,type,specclass,magnitude) {
+					this.constellation = constell;
+					this.type = type;
+					this.spectralClass = specclass;
+					this.mag  = magnitude;
+				}
+
+				star["Polaris"] = new Star("Ursa Minor","Double/Cepheid","F7",2.0);
+				star["Mizar"] = new Star("Ursa Major","Spectroscopic Binary","A1 V",2.3);
+				star["Aldebaran"] = new Star("Taurus","Irregular Variable","K5 III",0.85);
+				star["Rigel"] = new Star("Orion","Supergiant with Companion","B8 Ia",0.12);
+				star["Castor"] = new Star("Gemini","Multiple/Spectroscopic","A1 V",1.58);
+				star["Albireo"] = new Star("Cygnus","Double","K3 II",3.1);
+				star["Acrux"] = new Star("Crux","Double","B1 IV",0.8);
+				star["Gemma"] = new Star("Corona Borealis","Eclipsing Binary","A0 V",2.23);
+				star["Procyon"] = new Star("Canis Minor","Double","F5 IV",0.38);
+				star["Sirius"] = new Star("Canis Major","Double","A1 V",-1.46);
+				star["Rigil Kentaurus"] = new Star("Centaurus","Double","G2 V",-0.01);
+				star["Deneb"] = new Star("Cygnus","Supergiant","A2 Ia",1.25);
+				star["Vega"] = new Star("Lyra","White Dwarf","A0 V",0.03);
+				star["Altair"] = new Star("Aquila","White Dwarf","A7 V",0.77);
+				
+				for (var i = 0; i < nombres.length; i++){
+					console.log(star[nombres[i]].constellation + " " + star[nombres[i]].type + " " + star[nombres[i]].spectralClass + " " + star[nombres[i]].mag);
+				} console.log("Esta forma de crear objetos crea un objeto vacío (var star = {}) y un constructor (function Star(constell,type,specclass,magnitude)) que utiliza para crear los objetos que visualizamos en base al objeto vacío. Gracias al constructor se pueden añadir todas las propiedades de una vez en lugar de una a una como el caso anterior."); 
+				alert ("La información de los objetos se muestra por consola (F12)");
+			}
+			
+			function l83(){
+				var star = {};
+
+				function Star(constell,type,specclass,magnitude) {
+					this.constellation = constell;
+					this.type = type;
+					this.spectralClass = specclass;
+					this.mag  = magnitude;
+				}
+
+				star["Polaris"] = new Star("Ursa Minor","Double/Cepheid","F7",2.0);
+				star["Mizar"] = new Star("Ursa Major","Spectroscopic Binary","A1 V",2.3);
+				star["Aldebaran"] = new Star("Taurus","Irregular Variable","K5 III",0.85);
+				star["Rigel"] = new Star("Orion","Supergiant with Companion","B8 Ia",0.12);
+				star["Castor"] = new Star("Gemini","Multiple/Spectroscopic","A1 V",1.58);
+				star["Albireo"] = new Star("Cygnus","Double","K3 II",3.1);
+				star["Acrux"] = new Star("Crux","Double","B1 IV",0.8);
+				star["Gemma"] = new Star("Corona Borealis","Eclipsing Binary","A0 V",2.23);
+				star["Procyon"] = new Star("Canis Minor","Double","F5 IV",0.38);
+				star["Sirius"] = new Star("Canis Major","Double","A1 V",-1.46);
+				star["Rigil Kentaurus"] = new Star("Centaurus","Double","G2 V",-0.01);
+				star["Deneb"] = new Star("Cygnus","Supergiant","A2 Ia",1.25);
+				star["Vega"] = new Star("Lyra","White Dwarf","A0 V",0.03);
+				star["Altair"] = new Star("Aquila","White Dwarf","A7 V",0.77);
+				
+				for (var i = 0; i < nombres.length; i++){
+					console.log(star[nombres[i]].constellation + " " + star[nombres[i]].type + " " + star[nombres[i]].spectralClass + " " + star[nombres[i]].mag);
+				} alert ("La información de los objetos se muestra por consola (F12)");
+
+				if ("Polaris" in star) {
+					star["Polaris"].aka = "Estrella del Norte";
+					alert("A Polaris también se la conoce como la " + star["Polaris"].aka);
+				} console.log("Igual que el ejemplo anterior pero añadiendo una condición (if ('Polaris' in star)) que mostrará un mensaje por pantalla en forma de alert si la estrella 'Polaris' se encuentra dentro del objeto vacío 'star'");
+			}
+		</script>
+	</head>
+	<body>
+		<div class="navbar">
+			<a href="home.html" onmouseenter="playAudio()"><img src="img/icon.png" alt="home" height="20" width="20"></a>
+ 			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 2<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="ej1.htm" onmouseenter="playAudio()">PDF de "Ejercicios 1" completo</a>
+      				<a href="saludo.html" onmouseenter="playAudio()">Hablar con Byleth</a>
+      				<a href="adivina.html" onmouseenter="playAudio()">Adivina un número con Byleth</a>
+      				<a href="loteria.html" onmouseenter="playAudio()">Byleth te saca la lotería</a>
+      				<a href="try_catch1.html" onmouseenter="playAudio()">Manejo de errores con Byleth parte 1</a>
+      				<a href="try_catch2.html" onmouseenter="playAudio()">Manejo de errores con Byleth parte 2</a>
+    			</div>
+  			</div>
+ 			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 3<i class="fa fa-caret-down"></i></button>
+    			<div class="subnav-content">
+      				<a href="operacion.html" onmouseenter="playAudio()">Operación aritmética</a>
+					<a href="contador.html" onmouseenter="playAudio()">Cuenta con Byleth</a>
+					<a href="comprobar.html" onmouseenter="playAudio()">Comprobación de parámetros</a>
+					<a href="suma.html" onmouseenter="playAudio()">Termina el código</a>
+					<a href="bucles.html" onmouseenter="playAudio()">Diferencias de bucles con Byleth</a>
+					<a href="moneda.html" onmouseenter="playAudio()">Byleth te lanza una moneda</a>
+					<a href="ppt.html" onmouseenter="playAudio()">Juega al triángulo de armas con Byleth</a>
+					<a href="funciones.html" onmouseenter="playAudio()">Byleth calcula el factorial</a>
+					<a href="funciones2.html" onmouseenter="playAudio()">Intercambio de valores</a>
+					<a href="funciones3.html" onmouseenter="playAudio()">Suma por comas</a>
+					<a href="funciones4.html" onmouseenter="playAudio()">Parámetros por defecto</a>
+					<a href="funciones5.html" onmouseenter="playAudio()">Factorial recursivo</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 4<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="ahorcado.html" onmouseenter="playAudio()">Juega al ahorcado con Byleth</a>
+      				<a href="aparcamiento.html" onmouseenter="playAudio()">Byleth te cobra el parking</a>
+      				<a href="vvector.html" onmouseenter="playAudio()">Visualizar un vector</a>
+      				<a href="validar.html" onmouseenter="playAudio()">Byleth valida tu e-mail</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 5<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="form.html" onmouseenter="playAudio()">Formulario 1</a>
+					<a href="form2.html" onmouseenter="playAudio()">Formulario 2</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 6<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="lista.html" onmouseenter="playAudio()">Lista de varios niveles</a>
+					<a href="boton.html" onmouseenter="playAudio()">Pulsar el botón</a>
+					<a href="burbuja.html" onmouseenter="playAudio()">Burbujeo de sucesos</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 7<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="opener.htm" onmouseenter="playAudio()">Abrir ventanas</a>
+					<a href="marcos.html" onmouseenter="playAudio()">Marcos</a>
+					<a href="miniaturas.html" onmouseenter="playAudio()">Cuadros</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 8<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="coloresrgb.htm" onmouseenter="playAudio()">Colores RGB</a>
+					<a href="roll.html" onmouseenter="playAudio()">Roll Over</a>
+					<a href="visitas.html" onmouseenter="playAudio()">Contador de visitas</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 9<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="carrito.html" onmouseenter="playAudio()">Carrito</a>
+					<a href="arrayo.html" onmouseenter="playAudio()">Array de objetos</a>
+					<a href="crear.html" onmouseenter="playAudio()">Creación de objetos</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 10<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="pos.html" onmouseenter="playAudio()">Posicionamiento</a>
+					<a href="colecciones.html" onmouseenter="playAudio()">Colecciones</a>
+					<a href="filtros.html" onmouseenter="playAudio()">Filtros transiciones</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 11<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="pizza.html" onmouseenter="playAudio()">Byleth te hace una pizza</a>
+    			</div>
+  			</div>
+			<a href="https://twitter.com/NinNakajima" onmouseenter="playAudio()">Art by @NinNakajima</a>
+			<a><audio id="bgm" src="bgm/class.mp3" controls loop></a>
+		</div>
+		<div class="main">
+			<div class="ext">
+				<div class="cuadrofeo">
+					<h3>Creación de objetos</h3>
+					<div id="outer">
+						<button class="inner" type="button" onclick="l81(); sonido.play()">Listing 8-1</button>
+						<button class="inner" type="button" onclick="l82(); sonido.play()">Listing 8-2</button>
+						<button class="inner" type="button" onclick="l83(); sonido.play()">Listing 8-3</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+			<script>
+				var vol = document.getElementById("bgm");
+				vol.volume = 0.2;
+			</script>
+	</body>
+</html>

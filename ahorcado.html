@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Byleth DAW</title>
+		<link rel="stylesheet" type = "text/css" href="css/css.css">
+		<link rel="stylesheet" type = "text/css" href="css/menu.css">
+		<link rel="icon" href="img/icon.png">
+		<audio id="hover">
+			<source src="bgm/hover.flac">
+		</audio>
+		<script type="text/javascript">
+			var sonido = new Audio();
+			sonido.src = ("bgm/click.flac");
+			
+			var soni2 = document.getElementById("hover");
+			function playAudio() {
+				soni2.play();
+			}
+
+			var intentos = [];
+			var prueba = "";
+			var contador = 0;
+			var final = "";
+			var numeros = ["0","1","2","3","4","5","6","7","8","9"];
+			String.prototype.replaceAt=function(index, replacement) {
+				return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+			}
+	  
+			function ahorcar(){
+				contador = 0;
+				document.getElementById('result').innerHTML = "<img src=\"img/placeholder.png\">";;
+				document.getElementById('b2').disabled = false;
+				document.getElementById('b1').disabled = true;
+				document.getElementById('palabra').disabled = true;
+				intentos = [];
+				
+				var valor = document.getElementById("palabra").value;
+				var palabra = document.getElementById("palabra").value.toString();
+				var n = palabra.length - 1;
+				var pista = Math.round(Math.random() * (n - 0)  );
+				var descubrir = "";
+				var n = palabra.length;
+				for(var i = 0; i < n; i++){
+					descubrir += "-";
+				}
+				var cambio = palabra.charAt(pista);
+				var indices = [];
+				var lugar = 0;
+				for (var j = 0; j < n; j++){
+					if(cambio == palabra.charAt(j)){
+						indices[lugar] = j;
+						lugar++;
+					}
+				} 
+				final = descubrir;
+				if(indices.length > 1){
+					for (var c = 0; c < indices.length; c++){
+						final = final.replaceAt(indices[c], cambio); 
+					}
+				} else{
+					final = descubrir.replaceAt(pista, cambio);
+				}
+				if(valor == ""){
+					document.getElementById('adivina').innerHTML = "&nbsp";
+
+				} else {
+					document.getElementById('adivina').innerHTML = final;
+				}
+			}
+		
+			function palabra(){
+				var palabra2 = document.getElementById("palabra");
+				var palabraValor2 = palabra2.value;
+				prueba = palabraValor2.toString();
+			}
+		
+			function ganar(){
+				if(final === prueba){
+					document.getElementById('fallo').innerHTML = "Has Ganado";
+					document.getElementById('b2').disabled = true;
+					document.getElementById('b1').disabled = false;
+					document.getElementById('palabra').disabled = false;
+					document.getElementById('adivina').innerHTML = valor;
+				}
+			}
+			
+			function comprobar(){
+				palabra();
+				var intento = document.getElementById("intentos");
+				var intentoValor = intento.value;
+				var intentoFinal= intentoValor.toString();
+				var comprobacion = prueba.indexOf(intentoFinal) !== -1;
+				var dondeIndice = prueba.indexOf(intentoFinal);
+				if(comprobacion == true){ 
+					var indices2 = [];
+					var lugar2 = 0;
+					var g = prueba.length;
+					for (var z = 0; z < g; z++){
+						if(intentoFinal == prueba.charAt(z)){
+							indices2[lugar2] = z;
+							lugar2++;
+						}
+					}
+					if(indices2.length > 1){
+						for (var v = 0; v < indices2.length; v++){
+							final = final.replaceAt(indices2[v], intentoFinal); 
+							ganar();
+						}
+					} else{
+						final = final.replaceAt(dondeIndice, intentoFinal);
+						ganar(); 
+					}	
+					document.getElementById('adivina').innerHTML = final;
+					document.getElementById('intentos').value = "";
+				} else{
+					if (intentos.includes(intentoFinal.toUpperCase()) == true){
+						document.getElementById('fallo').innerHTML = "No repitas letras";
+						document.getElementById('intentos').value = "";
+					} else{
+						if(intentoFinal.length > 1){
+							document.getElementById('fallo').innerHTML = "Introduce sólo 1 letra";
+							document.getElementById('intentos').value = "";
+						} else{
+							intentos.push(intentoFinal.toUpperCase());
+							document.getElementById('fallo').innerHTML = intentos;
+							document.getElementById('intentos').value = "";
+							contador++;
+							if(contador==1){
+								document.getElementById('result').innerHTML = "<img src=\"img/cabeza.png\" width=\"80\" height=\"80\">";
+							} if(contador==2){
+								document.getElementById('result').innerHTML = "<img src=\"img/torso.png\" width=\"80\" height=\"80\">";;
+							} if(contador==3){
+								document.getElementById('result').innerHTML = "<img src=\"img/b1.png\" width=\"80\" height=\"80\">";;
+							} if(contador==4){
+								document.getElementById('result').innerHTML = "<img src=\"img/b2.png\" width=\"80\" height=\"80\">";;
+							} if(contador==5){
+								document.getElementById('result').innerHTML = "<img src=\"img/p1.png\" width=\"80\" height=\"80\">";;
+							} if(contador==6){
+								document.getElementById('fallo').innerHTML = "Gana Byleth";
+								document.getElementById('result').innerHTML = "<img src=\"img/p2.png\" width=\"80\" height=\"80\">";;
+								document.getElementById('b2').disabled = true;
+								document.getElementById('b1').disabled = false;
+								document.getElementById('palabra').disabled = false;
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="navbar">
+			<a href="home.html" onmouseenter="playAudio()"><img src="img/icon.png" alt="home" height="20" width="20"></a>
+ 			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 2<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="ej1.htm" onmouseenter="playAudio()">PDF de "Ejercicios 1" completo</a>
+      				<a href="saludo.html" onmouseenter="playAudio()">Hablar con Byleth</a>
+      				<a href="adivina.html" onmouseenter="playAudio()">Adivina un número con Byleth</a>
+      				<a href="loteria.html" onmouseenter="playAudio()">Byleth te saca la lotería</a>
+      				<a href="try_catch1.html" onmouseenter="playAudio()">Manejo de errores con Byleth parte 1</a>
+      				<a href="try_catch2.html" onmouseenter="playAudio()">Manejo de errores con Byleth parte 2</a>
+    			</div>
+  			</div>
+ 			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 3<i class="fa fa-caret-down"></i></button>
+    			<div class="subnav-content">
+      				<a href="operacion.html" onmouseenter="playAudio()">Operación aritmética</a>
+					<a href="contador.html" onmouseenter="playAudio()">Cuenta con Byleth</a>
+					<a href="comprobar.html" onmouseenter="playAudio()">Comprobación de parámetros</a>
+					<a href="suma.html" onmouseenter="playAudio()">Termina el código</a>
+					<a href="bucles.html" onmouseenter="playAudio()">Diferencias de bucles con Byleth</a>
+					<a href="moneda.html" onmouseenter="playAudio()">Byleth te lanza una moneda</a>
+					<a href="ppt.html" onmouseenter="playAudio()">Juega al triángulo de armas con Byleth</a>
+					<a href="funciones.html" onmouseenter="playAudio()">Byleth calcula el factorial</a>
+					<a href="funciones2.html" onmouseenter="playAudio()">Intercambio de valores</a>
+					<a href="funciones3.html" onmouseenter="playAudio()">Suma por comas</a>
+					<a href="funciones4.html" onmouseenter="playAudio()">Parámetros por defecto</a>
+					<a href="funciones5.html" onmouseenter="playAudio()">Factorial recursivo</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 4<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="ahorcado.html" onmouseenter="playAudio()">Juega al ahorcado con Byleth</a>
+      				<a href="aparcamiento.html" onmouseenter="playAudio()">Byleth te cobra el parking</a>
+      				<a href="vvector.html" onmouseenter="playAudio()">Visualizar un vector</a>
+      				<a href="validar.html" onmouseenter="playAudio()">Byleth valida tu e-mail</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 5<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="form.html" onmouseenter="playAudio()">Formulario 1</a>
+					<a href="form2.html" onmouseenter="playAudio()">Formulario 2</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 6<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="lista.html" onmouseenter="playAudio()">Lista de varios niveles</a>
+					<a href="boton.html" onmouseenter="playAudio()">Pulsar el botón</a>
+					<a href="burbuja.html" onmouseenter="playAudio()">Burbujeo de sucesos</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 7<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="opener.htm" onmouseenter="playAudio()">Abrir ventanas</a>
+					<a href="marcos.html" onmouseenter="playAudio()">Marcos</a>
+					<a href="miniaturas.html" onmouseenter="playAudio()">Cuadros</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 8<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="coloresrgb.htm" onmouseenter="playAudio()">Colores RGB</a>
+					<a href="roll.html" onmouseenter="playAudio()">Roll Over</a>
+					<a href="visitas.html" onmouseenter="playAudio()">Contador de visitas</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 9<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="carrito.html" onmouseenter="playAudio()">Carrito</a>
+					<a href="arrayo.html" onmouseenter="playAudio()">Array de objetos</a>
+					<a href="crear.html" onmouseenter="playAudio()">Creación de objetos</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 10<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="pos.html" onmouseenter="playAudio()">Posicionamiento</a>
+					<a href="colecciones.html" onmouseenter="playAudio()">Colecciones</a>
+					<a href="filtros.html" onmouseenter="playAudio()">Filtros transiciones</a>
+    			</div>
+  			</div>
+			<div class="subnav">
+    			<button class="subnavbtn" onmouseenter="playAudio()">Tema 11<i class="fa fa-caret-down"></i></button>
+   				<div class="subnav-content">
+      				<a href="pizza.html" onmouseenter="playAudio()">Byleth te hace una pizza</a>
+    			</div>
+  			</div>
+			<a href="https://twitter.com/NinNakajima" onmouseenter="playAudio()">Art by @NinNakajima</a>
+			<a><audio id="bgm" src="bgm/class.mp3" controls loop></a>
+		</div>
+		<div class="main">
+			<div class="ext">
+				<div class="bigcuadrofeo">
+					<h3>Ahorcado</h3>
+					<div>
+						<label>Introduzca una palabra:</label>
+						<input type="password" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" id="palabra">
+						<!-- El return de "onkeypress" comprobará que el caracter introducido esté entre las posiciones indicadas, si lo está (osea, es una letra del alfabeto) lo escribirá. -->
+						<button type="button" class="boton1" onclick="ahorcar(); sonido.play()" id="b1">Jugar</button>
+						<label class="cambio">&nbsp;</label>
+						<label>Palabra:</label>
+						<p id ="adivina" class="factorial">&nbsp;</p>
+					</div>
+					<div>
+						<label>Introduzca una letra:</label>
+						<input type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" id="intentos">
+						<button type="button" class="botonauto" onclick="comprobar(); sonido.play()" id="b2" disabled="true">Adivinar</button>
+						<label class="cambio">&nbsp;</label>
+						<label>Intentos:</label>
+						<p id ="fallo" class="factorial">&nbsp;</p>
+						<label id ="result" class="ahorcado"></label>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+			<script>
+				var vol = document.getElementById("bgm");
+				vol.volume = 0.2;
+			</script>
+	</body>
+</html>

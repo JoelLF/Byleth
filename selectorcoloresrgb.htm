@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>Ventana del selector de color</title>
+	</head>
+	<body>
+		<center>
+			<form>
+				<b>Elija una propiedad:</b><br>
+				<select name="nombre_atributo">
+					<option value="alinkColor">alinkColor</option>
+					<option value="linkColor">linkColor</option>
+					<option value="vlinkColor">vlinkColor</option>
+					<option value="bgColor">bgColor</option>
+					<option value="fgColor">fgColor</option>
+				</select>
+				<p>
+					<b>Elija un nuevo color:</b><br>
+				<p>
+				<p style="color:red">
+					Rojo(0 - 255)<input type="text" id="rojo"></input><br>
+				</p>
+				<p style="color:green">
+					Verde(0 - 255)<input type="text" id="verde"></input><br>
+				</p>
+				<p style="color:blue">
+					Azul(0 - 255)<input type="text" id="azul"></input><br>
+				</p>
+				<input type="button" value="Cambiar el color" onClick="fijar_color(this.form)">
+				&nbsp;
+				<input type="button" value="Cerrar" onClick="self.close()">
+			</form>
+		</center>
+		<script language="JavaScript" type="text/javascript">
+		<!--
+		function fijar_color(formulario) {
+			var color1 = document.getElementById("rojo").value;
+			var color2 = document.getElementById("verde").value;
+			var color3 = document.getElementById("azul").value;
+			if(color1 > 255 || color2 > 255 || color3 > 255){
+				alert("Introduce un valor entre 0 y 255 en los colores");
+			} else if(color1 < 0 || color2 < 0 || color3 < 0){
+				alert("Introduce un valor entre 0 y 255 en los colores");
+			} else{
+				var lista_atributos = formulario.nombre_atributo
+				// Recuperar la opción seleccionada de la lista
+				var atributo_seleccionado = lista_atributos.options[lista_atributos.selectedIndex].value
+				// Método para convertir el RGB a Hex
+				var rgbToHex = function (rgb) { 
+					var hex = Number(rgb).toString(16);
+					if (hex.length < 2) {
+						hex = "0" + hex;
+					} 
+					return hex;
+				};
+				// Convertir el color seleccionado a Hex
+					var red = rgbToHex(color1);
+					var green = rgbToHex(color2);
+					var blue = rgbToHex(color3);
+					var color_seleccionado = color1+color2+color3;
+					// Cambiar el color de la propiedad seleccionada
+					opener.document[atributo_seleccionado] = color_seleccionado
+				}
+		}
+		//-->
+		</script>
+	</body>
+</html>
+

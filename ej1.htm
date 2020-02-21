@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Byleth DAW</title>
+		<link rel="icon" href="icon.png">
+	<body>
+		<a href="home.html"><h1>Inicio</h1></a>
+		<script>	
+			// Ejercicio 1: Realiza una página en la que crees dos vs "string", las "sumes" e imprimas el resultado. 
+			string1 = "pe";
+			string2 = "pe"; 
+			resultado = string1 + string2;
+			alert(resultado);
+			
+			/* Ejercicio 2: La función typeof() devuelve el tipo de una v. Hacer un
+			*script que te diga el tipo de un par de vs, sin inicializarlas y posteriormente
+			con un valor (string, number y boolean).*/
+			var v1 = 2;
+			var v2 = "tortilla"; 
+			alert("El tipo de la primera variable es: " + typeof v1);
+			alert("El tipo de la segunda variable es: " + typeof v2);
+			
+			/*Ejercicio 3: Vamos a realizar una pequeña página que pida al usuario un
+			*par de números y mediante una condicional le digamos si el primero es mayor que
+			*el segundo o es menor o iguales. Es importante recordar que hemos de cambiar el
+			tipo de string a int usando la función parseInt();*/
+			var num1 = parseInt(prompt ("Introduce un número",""));
+			var num2 = parseInt(prompt ("Introduce otro número","")); 
+			if (num1 > num2){
+				alert(num1 + " es mayor que " + num2);
+			}
+			if (num1 < num2){
+				alert(num1 + " es menor que " + num2);
+			}
+			if (num1 == num2){
+				alert(num1 + " es igual que " + num2);
+			}
+			
+			/*Ejercicio 4: Veamos otro ejemplo sencillo que nos ilustra sobre el manejo
+			*del if. Este script nos devuelve "hola" si no introducimos nada o aquello que hemos escrito.*/
+			var string = prompt ("Introduce texto", "");
+			if (string == ""){
+				alert ("Hola");
+			}
+			else{
+				alert(string);
+			}
+			
+			/*Ejercicio 6: Vamos a hacer una pausa para asimilar el bucle for con un
+			ejercicio que no encierra ninguna dificultad si hemos entendido el funcionamiento del bucle.*/
+			for (i = 1; i <= 6; i++) { 
+				document.write("<H" + i + ">Encabezado de nivel " + i + "</H" + i + ">"); 
+			}
+			//Ejercicio 7: Veamos el mismo ejemplo anterior del bucle for, pero con un while
+			var i = 1;
+			while (i <= 6) { 
+				document.write("<H" + i + ">Encabezado de nivel " + i + "</H" + i + ">");
+				i++;
+			}
+			/*Ejercicio 8: Realizar un programa que solicite al usuario un valor, y
+			*presente en pantalla la cuenta atrás y luego la cuenta hacia delante. Hacerlo con un
+			bucle for.*/
+			var j = parseInt(prompt ("Introduce un número para la cuenta",""))
+			var aux = j;
+			for (; j > 0; j--) { 
+				document.write(j + " ");			
+			} 
+			document.write("<br>");
+			for (; j <= aux; j++) { 
+				document.write(j + " ");
+			}
+			document.write("<br>");
+			//Ejercicio 9: El mismo anterior pero con bucle while.
+			var z = parseInt(prompt ("Introduce un número para la cuenta",""))
+			aux = z;
+			while (z > 0) { 
+				document.write(z + " ");
+				z--;
+			}
+			document.write("<br>");
+			while (z <= aux) { 
+				document.write(z + " ");
+				z++
+			}
+			document.write("<br>");			
+			//Ejercicio 10: Hacer una Página web que genere una pirámide de 1 a 50 (1)
+			document.write("<br>");
+			for (i = 1; i <= 50; i++) {
+				for (j = 0; j < i; j++) {
+					document.write(i);
+				}
+				document.write("<br>");
+			}
+			//Ejercicio 11: Hacer una Página web que genere una pirámide de 1 a 50 (2)
+			for (i = 1; i <= 50; i++) {
+				for (j = 0; j < i; j++) {
+					document.write(j + 1);
+				}
+				document.write("<br>");
+			}
+		</script>
+	</body>
+</html>
